@@ -33,7 +33,7 @@ class DeviseCreateUserRenters < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.string :name
-      t.striing :surname
+      t.string :surname
       t.string :license
 
       t.timestamps null: false
