@@ -1,4 +1,16 @@
 <div id="topnav">
- <%=link_to 'Rent a car', user_renter_session_path%>
- <%=link_to 'Share a car', user_owner_session_path%>
-</div>
+
+ <% if user_renter_signed_in? %>
+   <div id="logout"><%= link_to 'Logout', destroy_user_renter_session_path, method: "delete",class:"top-nav-link"%></div>
+   <div id="username"><%= current_user_renter.email %></div>
+ <% elsif user_owner_signed_in? %>
+   <div id="logout"><%= link_to 'Logout', destroy_user_owner_session_path, method: "delete",class:"top-nav-link"%></div>
+   <div id="username"><%= current_user_owner.email %></div>
+ <% else %>
+  <span class="renttopnav">
+  <%=link_to 'Rent a car', user_renter_session_path%>
+  </span>
+  </span class="sharetopnav">
+  <%=link_to 'Share a car', user_owner_session_path%>
+  </span>
+ <% end %>
