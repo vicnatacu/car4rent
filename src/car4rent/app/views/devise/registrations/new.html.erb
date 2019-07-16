@@ -23,8 +23,24 @@
 
   <div class="field">
     <%=f.label :name%>
-    <%=f.text_field :name%>
+    <%=f.text_field :name %>
   </div>
+
+  <div class="field">
+    <%=f.label :surname%>
+    <%=f.text_field :surname %>
+  </div>
+
+  <div class="field">
+  <%if resource_name == :user_renter%>
+    <%=f.label :license%>
+    <%=f.text_field :license %>
+    <%end%>
+  </div>
+
+ 
+
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>
