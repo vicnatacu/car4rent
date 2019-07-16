@@ -12,6 +12,7 @@
       <th>Price per day</th>
       <th>Rego</th>
       <th>Colour</th>
+      <th>Owner Images</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@
         <td><%= car.price_per_day %></td>
         <td><%= car.Rego %></td>
         <td><%= car.colour %></td>
+        <td><%= car.owner_images %></td>
         <td><%= link_to 'Show', car %></td>
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>

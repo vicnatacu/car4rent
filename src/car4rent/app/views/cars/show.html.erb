@@ -35,5 +35,9 @@
   <%= @car.colour %>
 </p>
 
+<p class="owner_images">
+  <%= image_tag @car.owner_images %>
+</p>
+
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
