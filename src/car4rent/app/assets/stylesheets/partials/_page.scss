@@ -18,19 +18,34 @@ body {
 
 }
 
-.page {
+.container {
      @include flex-center;
-     width: 80vw;
+     width: 100vw;
 }
 
 .heading {
     font-family: $header-font;
     margin: 0;
     padding: 0;
+    width: 100vw;
+    
   
 
 }
 
+.lg {
+    font-family: $header-font;
+    font-size: 0.75em;
+    justify-self: left;
+
+    
+     
+   
+   
+    
+    
+
+}
 a {
     text-shadow: none;
 }

@@ -15,7 +15,7 @@ body {
   text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.5);
 }
 
-.page {
+.container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,13 +28,21 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 80vw;
+  width: 100vw;
 }
 
 .heading {
   font-family: "Fugaz One", cursive;
   margin: 0;
   padding: 0;
+  width: 100vw;
+}
+
+.lg {
+  font-family: "Fugaz One", cursive;
+  font-size: 0.75em;
+  -ms-grid-column-align: left;
+      justify-self: left;
 }
 
 a {
