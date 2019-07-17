@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Year:</strong>
+  <%= @car.year %>
+</p>
+
+<p>
   <strong>Availability:</strong>
   <%= @car.availability %>
 </p>
@@ -30,5 +35,15 @@
   <%= @car.colour %>
 </p>
 
+<p class="owner_images">
+  <% @car.owner_images.each do |image| %>
+    <%= image_tag image %>
+  <% end %>
+</p>
+
+<% if user_owner_signed_in? %>
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
+<% else %>
+<%= link_to 'Back', cars_path %>
+<%end%>

@@ -7,6 +7,7 @@
     <tr>
       <th>Make</th>
       <th>Model</th>
+      <th>Year of Make</th>
       <th>Availability</th>
       <th>Price per day</th>
       <th>Rego</th>
@@ -20,13 +21,16 @@
       <tr>
         <td><%= car.make %></td>
         <td><%= car.model %></td>
+        <td><%= car.year %></td>
         <td><%= car.availability %></td>
         <td><%= car.price_per_day %></td>
         <td><%= car.Rego %></td>
         <td><%= car.colour %></td>
         <td><%= link_to 'Show', car %></td>
+        <%if user_owner_signed_in? && current_user_owner == car.user_owner%>
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove This Car', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

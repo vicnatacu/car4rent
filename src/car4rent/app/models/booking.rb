@@ -1,4 +1,3 @@
 class Booking < ApplicationRecord
-    has_one :user_owner
-    has_one :car
+    belongs_to :car
 end
