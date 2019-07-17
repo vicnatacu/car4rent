@@ -1,4 +1,8 @@
 <div id="topnav">
- <%=link_to 'Rent a car', user_renter_session_path%>
- <%=link_to 'Share a car', user_owner_session_path%>
+ <%=link_to 'Login', renter_or_owner_path%>
+ <%if user_owner_signed_in? %>
+ <%=link_to 'Logout', destroy_user_owner_session_path, method: :delete%>
+ <% elsif user_renter_signed_in? %>
+ <%=link_to 'Logout', destroy_user_renter_session_path, method: :delete%>
+ <%end%>
 </div>

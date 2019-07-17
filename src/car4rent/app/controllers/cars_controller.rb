@@ -25,6 +25,9 @@ class CarsController < ApplicationController
   # POST /cars.json
   def create
     @car = Car.new(car_params)
+    @car.user_owner = current_user_owner
+    logger.info current_user_owner.inspect
+    @car.owner_images.attach(params[:car][:owner_images])
 
     respond_to do |format|
       if @car.save
@@ -40,6 +43,7 @@ class CarsController < ApplicationController
   # PATCH/PUT /cars/1
   # PATCH/PUT /cars/1.json
   def update
+    @car.owner_images.attach(params[:car][:owner_images])
     respond_to do |format|
       if @car.update(car_params)
         format.html { redirect_to @car, notice: 'Car was successfully updated.' }

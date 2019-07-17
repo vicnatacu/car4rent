@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_035950) do
+ActiveRecord::Schema.define(version: 2019_07_17_013624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_035950) do
     t.decimal "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "car_id"
+    t.index ["car_id"], name: "index_bookings_on_car_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -54,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_035950) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "year"
+    t.bigint "user_owner_id"
+    t.index ["user_owner_id"], name: "index_cars_on_user_owner_id"
   end
 
   create_table "user_owners", force: :cascade do |t|
@@ -66,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_035950) do
     t.string "surname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "contact"
     t.index ["email"], name: "index_user_owners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_user_owners_on_reset_password_token", unique: true
   end
@@ -81,9 +86,12 @@ ActiveRecord::Schema.define(version: 2019_07_16_035950) do
     t.string "license"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "contact"
     t.index ["email"], name: "index_user_renters_on_email", unique: true
     t.index ["reset_password_token"], name: "index_user_renters_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "cars"
+  add_foreign_key "cars", "user_owners"
 end
